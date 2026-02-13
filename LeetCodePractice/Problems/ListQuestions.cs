@@ -1,11 +1,14 @@
 using LeetCodePractice.Classes;
 
-public class ListQuestions
+namespace LeetCodePractice.Functions
 {
-    public ListQuestions(){}
-    public ListNode MergeTwoLists(ListNode list1, ListNode list2)
+    public class ListQuestions
     {
-        // Placeholder
-        return new ListNode(1, null);
-    }
+        public ListQuestions(){}
+        public ListNode MergeTwoLists(ListNode list1, ListNode list2)
+        {
+            // Placeholder
+            return new ListNode(1, null);
+        }
+    } 
 }
