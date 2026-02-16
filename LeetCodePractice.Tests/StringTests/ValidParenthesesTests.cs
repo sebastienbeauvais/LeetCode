@@ -1,4 +1,4 @@
-using LeetCodePractice.Problems;
+using LeetCodePractice.Functions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Company.TestProject1;
