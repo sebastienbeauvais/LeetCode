@@ -58,9 +58,9 @@ namespace LeetCodePractice.Functions
             for(int i = 0; i < s.Length; i++){
                 charStack.Push(s[i]);
             }
-            while(charStack.Count != 0)
+            for(int i = 0; i < s.Length; i++)
             {
-                Console.WriteLine(charStack.Pop());
+                s[i] = charStack.Pop();
             }
         }
     }
