@@ -1,6 +1,6 @@
 using System;
 
-namespace LeetCodePractice.Problems
+namespace LeetCodePractice.Functions
 {
     public class StringQuestions
     {
@@ -50,6 +50,17 @@ namespace LeetCodePractice.Problems
                     return true;
                 }
                 return false;
+            }
+        }
+        public void ReverseString(char[] s)
+        {
+            var charStack = new Stack<char>();
+            for(int i = 0; i < s.Length; i++){
+                charStack.Push(s[i]);
+            }
+            for(int i = 0; i < s.Length; i++)
+            {
+                s[i] = charStack.Pop();
             }
         }
     }
