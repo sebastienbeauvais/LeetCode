@@ -17,17 +17,19 @@ namespace LeetCodePractice.Tests;
     var expected = new int[] { 1, 1, 2, 3, 4, 4 };
     CollectionAssert.AreEqual(expected, ToArray(result));
   }
+  [TestMethod]
   public void MergeTwoLists_ShouldReturnEmptyArray_WhenListsAreEmpty()
   {
-    ListNode list1 = new ListNode();
-    ListNode list2 = new ListNode();
+    ListNode list1 = null;
+    ListNode list2 = null;
     var result = listQuestions.MergeTwoLists(list1, list2);
     var expected = new int[]{};
     CollectionAssert.AreEqual(expected, ToArray(result));
   }
+  [TestMethod]
   public void MergeTwoLists_ShouldReturnList2_WhenList1IsEmpty()
   {
-    ListNode list1 = new ListNode();
+    ListNode list1 = null;
     ListNode list2 = new ListNode(0, null);
     var result = listQuestions.MergeTwoLists(list1, list2);
     var expected = new int[] {0};
