@@ -54,7 +54,14 @@ namespace LeetCodePractice.Functions
         }
         public void ReverseString(char[] s)
         {
-            throw new NotImplementedException();
+            var charStack = new Stack<char>();
+            for(int i = 0; i < s.Length; i++){
+                charStack.Push(s[i]);
+            }
+            foreach(char c in charStack)
+            {
+                Console.WriteLine(charStack.Pop());
+            }
         }
     }
 }
