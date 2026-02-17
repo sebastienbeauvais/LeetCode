@@ -16,8 +16,8 @@ public class MergeArraysTest
     
     _arrayQuestions.Merge(nums1, m, nums2, n);
     
-    var expected = new int[]{ 1, 2, 2, 3, 5, 6 };
-    Assert.AreEqual(expected, nums1);
+    int[] expected = new int[]{ 1, 2, 2, 3, 5, 6 };
+    CollectionAssert.AreEqual(expected, nums1);
   }
 
   [TestMethod]
@@ -31,20 +31,20 @@ public class MergeArraysTest
     _arrayQuestions.Merge(nums1, m, nums2, n);
 
     var expected = new int[] { 1 };
-    Assert.AreEqual(expected, nums1);
+    CollectionAssert.AreEqual(expected, nums1);
   }
 
   [TestMethod]
   public void Merge_ReturnsArray2InsideArray1_WhenArray1HoldsOnlyZero()
   {
-    int[] nums1 = { };
+    int[] nums1 = { 0 };
     int[] nums2 = { 1 };
-    int m = 1;
-    int n = 0;
+    int m = 0;
+    int n = 1;
     
     _arrayQuestions.Merge(nums1, m, nums2, n);
     
     var expected = new int[] { 1 };
-    Assert.AreEqual(expected, nums2);
+    CollectionAssert.AreEqual(expected, nums1);
   }
 }
