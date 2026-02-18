@@ -14,28 +14,24 @@ public class ValidParenthesesTests
         var result = stringQuestions.IsValid(parentheses);
         Assert.IsTrue(result);
     }
-    [TestMethod]
     public void ValidParentheses_ShouldReturnTrue_WithMixedParentheses()
     {
         var parentheses = "()[]{}";
         var result = stringQuestions.IsValid(parentheses);
         Assert.IsTrue(result);
     }
-    [TestMethod]
     public void ValidParentheses_ShouldReturnFalse_WhenParenthesesAreNotValid()
     {
         var parentheses = "(]";
         var result = stringQuestions.IsValid(parentheses);
         Assert.IsFalse(result);
     }
-    [TestMethod]
     public void ValidParentheses_ShouldReturnTrue_WhenParenthesesAreNested()
     {
         var parentheses = "([])";
         var result = stringQuestions.IsValid(parentheses);
         Assert.IsTrue(result);
     }
-    [TestMethod]
     public void ValidParentheses_ShouldReturnFalse_WhenParenthesesAreNestedAndInvalid()
     {
         var parentheses = "([})";
