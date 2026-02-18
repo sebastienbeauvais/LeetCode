@@ -1,7 +1,7 @@
 using LeetCodePractice.Functions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Company.TestProject1;
+namespace LeetCodePractice.Tests.StringTests;
 
 [TestClass]
 public class ValidParenthesesTests
