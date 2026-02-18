@@ -22,7 +22,18 @@ namespace LeetCodePractice.Problems
              *       15   7
              * Output: 3 (3->20->7)
              */
-            throw new NotImplementedException();
+
+            if(root == null)
+            {
+                return 0;
+            }
+            else
+            {
+                var left = MaxDepth(root.left);
+                var right = MaxDepth(root.right);
+                var maxDepth = Math.Max(left, right);
+                return maxDepth + 1;
+            }
         }
     }
 }
