@@ -32,7 +32,7 @@ namespace LeetCodePractice.Problems
                 var left = MaxDepth(root.left);
                 var right = MaxDepth(root.right);
                 var maxDepth = Math.Max(left, right);
-                return maxDepth + 1; //+1 because we need to account for the root!
+                return maxDepth + 1;
             }
         }
     }
