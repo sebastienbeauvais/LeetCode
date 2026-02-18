@@ -2,7 +2,7 @@
 using LeetCodePractice.Classes;
 using LeetCodePractice.Functions;
 
-namespace LeetCodePractice.Tests;
+namespace LeetCodePractice.Tests.ListTests;
 
   [TestClass]
   public class MergeTwoListsTest
