@@ -24,5 +24,23 @@ namespace LeetCodePractice.Problems
              */
             throw new NotImplementedException();
         }
+        public bool IsUnivalTree(TreeNode root)
+        {
+            /*
+             * A binary tree is uni-valued if every node in the tree has the same value.
+             * Given the root of a binary tree, return true if the given tree is uni-valued, 
+             * or false otherwise.
+             * 
+             * EX1: root = [1,1,1,1,1,null,1]
+             *       1
+             *      / \
+             *     1   1
+             *    / \   \
+             *   1   1   1
+             * Output: true
+             */
+
+            throw new NotImplementedException();
+        }
     }
 }
