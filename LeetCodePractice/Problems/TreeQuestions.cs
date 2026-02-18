@@ -22,7 +22,6 @@ namespace LeetCodePractice.Problems
              *       15   7
              * Output: 3 (3->20->7)
              */
-
             if(root == null)
             {
                 return 0;
