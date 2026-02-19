@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using LeetCodePractice.Classes;
 
@@ -51,7 +52,30 @@ namespace LeetCodePractice.Problems
              * Output: true
              */
 
-            throw new NotImplementedException();
+            if(root == null)
+            {
+                return true; // We reached the bottom of the branch
+            }
+            else
+            {
+                var leftVal = -1;
+                var rightVal = -1;
+                if(root.left != null)
+                {
+                    leftVal = root.left.val == root.val ? root.val : root.left.val;
+                }
+                if (root.right != null) 
+                {
+                    rightVal = root.right.val == root.val ? root.val : root.right.val;
+                }
+                IsUnivalTree(root.left);
+                IsUnivalTree(root.right);
+                if(leftVal == rightVal)
+                {
+                    return true;
+                }
+                return false;
+            }
         }
     }
 }
