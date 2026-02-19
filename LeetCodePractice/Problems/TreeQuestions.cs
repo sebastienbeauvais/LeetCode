@@ -58,23 +58,15 @@ namespace LeetCodePractice.Problems
             }
             else
             {
-                var leftVal = -1;
-                var rightVal = -1;
-                if(root.left != null)
+                if(root.left != null && root.left.val != root.val)
                 {
-                    leftVal = root.left.val == root.val ? root.val : root.left.val;
+                    return false;
                 }
-                if (root.right != null) 
+                if (root.right != null && root.right.val != root.val) 
                 {
-                    rightVal = root.right.val == root.val ? root.val : root.right.val;
+                    return false;
                 }
-                IsUnivalTree(root.left);
-                IsUnivalTree(root.right);
-                if(leftVal == rightVal)
-                {
-                    return true;
-                }
-                return false;
+                return IsUnivalTree(root.left) && IsUnivalTree(root.right);
             }
         }
     }
