@@ -82,9 +82,13 @@ namespace LeetCodePractice.Problems
              * Output: true
              */
 
-            if(p == null || q == null)
+            if(p == null && q == null)
             {
                 return true;
+            }
+            else if((p == null && q != null) || (q == null && p != null))
+            {
+                return false;
             }
             else
             {

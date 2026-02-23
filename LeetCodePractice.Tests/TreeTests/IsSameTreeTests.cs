@@ -41,7 +41,7 @@ namespace LeetCodePractice.Tests.TreeTests
         [TestMethod]
         public void IsSameTree_ShouldReturnFalse_WhenOneTreeHasANullTreeNode()
         {
-            var tree1 = new TreeNode(1, new TreeNode(), new TreeNode(2));
+            var tree1 = new TreeNode(1, null, new TreeNode(2));
             var tree2 = new TreeNode(1, new TreeNode(2));
 
             var result = _treeQuestions.IsSameTree(tree1, tree2);
