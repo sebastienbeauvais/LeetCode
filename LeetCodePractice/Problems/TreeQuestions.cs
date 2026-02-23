@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using LeetCodePractice.Classes;
 
@@ -22,6 +23,17 @@ namespace LeetCodePractice.Problems
              *       15   7
              * Output: 3 (3->20->7)
              */
+            if(root == null)
+            {
+                return 0;
+            }
+            else
+            {
+                var left = MaxDepth(root.left);
+                var right = MaxDepth(root.right);
+                var maxDepth = Math.Max(left, right);
+                return maxDepth + 1;
+            }
             throw new NotImplementedException();
         }
         public bool IsUnivalTree(TreeNode root)
@@ -40,7 +52,22 @@ namespace LeetCodePractice.Problems
              * Output: true
              */
 
-            throw new NotImplementedException();
+            if(root == null)
+            {
+                return true; // We reached the bottom of the branch
+            }
+            else
+            {
+                if(root.left != null && root.left.val != root.val)
+                {
+                    return false;
+                }
+                if (root.right != null && root.right.val != root.val) 
+                {
+                    return false;
+                }
+                return IsUnivalTree(root.left) && IsUnivalTree(root.right);
+            }
         }
         public bool IsSameTree(TreeNode p, TreeNode q) 
         {
