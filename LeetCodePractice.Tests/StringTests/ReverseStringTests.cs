@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LeetCodePractice.Functions;
 
-namespace LeetcodePracitce.Tests.StringTests;
+namespace LeetcodePractice.Tests.StringTests;
 
 [TestClass]
 public class ReverseStringTests
