@@ -42,5 +42,14 @@ namespace LeetCodePractice.Problems
 
             throw new NotImplementedException();
         }
+        public bool IsSameTree(TreeNode p, TreeNode q) 
+        {
+            /*
+             * 
+             * 
+             */
+
+            throw new NotImplementedException ();
+        }
     }
 }
