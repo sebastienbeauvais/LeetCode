@@ -57,5 +57,19 @@ namespace LeetCodePractice.Problems
 
             throw new NotImplementedException ();
         }
+        public bool IsSymmetrical(TreeNode root) 
+        {
+            /*
+             * Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+             * 
+             * EX:       1
+             *          / \
+             *         2   2
+             *        / \  /\
+             *       3   4 4 3
+             * Output: True
+             */
+            throw new NotImplementedException ();
+        }
     }
 }
