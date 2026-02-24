@@ -69,7 +69,27 @@ namespace LeetCodePractice.Problems
              *       3   4 4 3
              * Output: True
              */
-            throw new NotImplementedException ();
+            
+            // We know that when we hit null (i.e. find a leaf) we should return true
+            // This bubbles us back up the tree and we start comparing values between nodes
+            // Since we are looking for symmetry we want to compare the right node val with the left node val
+            return IsMirror(root, root);
+        }
+        private bool IsMirror(TreeNode left, TreeNode right)
+        {
+            if(left == null && right == null)
+            {
+                return true;
+            }
+            if(left == null || right == null)
+            {
+                return false; //Because both can be null and this would be valid match
+            }
+            if(left.val != right.val)
+            {
+                return false;
+            }
+            return IsMirror(left.left, right.right) && IsMirror(left.right, right.left);
         }
     }
 }

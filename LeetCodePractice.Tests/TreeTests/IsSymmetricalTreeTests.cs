@@ -21,7 +21,7 @@ namespace LeetCodePractice.Tests.TreeTests
         [TestMethod]
         public void IsSymmetricalTree_ShouldReturnFalse_WhenTreeIsNotSymmetrical()
         {
-            var root = new TreeNode(1, new TreeNode(2, new TreeNode(3), new TreeNode(4)), new TreeNode(2, new TreeNode(3), new TreeNode(4)));
+            var root = new TreeNode(1, new TreeNode(2), new TreeNode(3));
             var result = _treeQuestions.IsSymmetrical(root);
 
             Assert.IsFalse(result);
