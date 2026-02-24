@@ -69,5 +69,42 @@ namespace LeetCodePractice.Problems
                 return IsUnivalTree(root.left) && IsUnivalTree(root.right);
             }
         }
+        public bool IsSameTree(TreeNode p, TreeNode q) 
+        {
+            /*
+             * Given the roots of two binary trees p and q, write a function to check if 
+             * they are the same or not.Two binary trees are considered the same if they 
+             * are structurally identical, and the nodes have the same value.
+             * EX1: p = [1,2,3], q = [1,2,3]
+             *       1          1
+             *      / \        / \
+             *     2   3      2   3
+             * Output: true
+             */
+
+            if(p == null && q == null)
+            {
+                return true;
+            }
+            else if((p == null && q != null) || (q == null && p != null))
+            {
+                return false;
+            }
+            else
+            {
+                if (p.val == q.val)
+                {
+                    var isLeftBranchMatch = IsSameTree(p.left, q.left);
+                    var isRightBranchMatch = IsSameTree(p.right, q.right);
+                    if(isLeftBranchMatch == false || isRightBranchMatch == false)
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+                return false;
+                
+            }
+        }
     }
 }
