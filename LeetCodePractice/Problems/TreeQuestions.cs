@@ -118,7 +118,23 @@ namespace LeetCodePractice.Problems
              *       3   4 4 3
              * Output: True
              */
-            throw new NotImplementedException();
+            return IsMirror(root, root);
+        }
+        private bool IsMirror(TreeNode left, TreeNode right)
+        {
+            if(left == null && right == null)
+            {
+                return true;
+            }
+            if(left == null || right == null)
+            {
+                return false;
+            }
+            if(left.val != right.val)
+            {
+                return false;
+            }
+            return (IsMirror(left.left, right.right) && IsMirror(left.right, right.left));
         }
         public IList<int> InOrderTraversal(TreeNode root)
         {
