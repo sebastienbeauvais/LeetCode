@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using LeetCodePractice.Classes;
 
@@ -22,6 +23,17 @@ namespace LeetCodePractice.Problems
              *       15   7
              * Output: 3 (3->20->7)
              */
+            if(root == null)
+            {
+                return 0;
+            }
+            else
+            {
+                var left = MaxDepth(root.left);
+                var right = MaxDepth(root.right);
+                var maxDepth = Math.Max(left, right);
+                return maxDepth + 1;
+            }
             throw new NotImplementedException();
         }
         public bool IsUnivalTree(TreeNode root)
@@ -40,7 +52,22 @@ namespace LeetCodePractice.Problems
              * Output: true
              */
 
-            throw new NotImplementedException();
+            if(root == null)
+            {
+                return true; // We reached the bottom of the branch
+            }
+            else
+            {
+                if(root.left != null && root.left.val != root.val)
+                {
+                    return false;
+                }
+                if (root.right != null && root.right.val != root.val) 
+                {
+                    return false;
+                }
+                return IsUnivalTree(root.left) && IsUnivalTree(root.right);
+            }
         }
         public bool IsSameTree(TreeNode p, TreeNode q) 
         {
@@ -55,7 +82,29 @@ namespace LeetCodePractice.Problems
              * Output: true
              */
 
-            throw new NotImplementedException();
+            if(p == null && q == null)
+            {
+                return true;
+            }
+            else if((p == null && q != null) || (q == null && p != null))
+            {
+                return false;
+            }
+            else
+            {
+                if (p.val == q.val)
+                {
+                    var isLeftBranchMatch = IsSameTree(p.left, q.left);
+                    var isRightBranchMatch = IsSameTree(p.right, q.right);
+                    if(isLeftBranchMatch == false || isRightBranchMatch == false)
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+                return false;
+                
+            }
         }
         public bool IsSymmetrical(TreeNode root) 
         {
