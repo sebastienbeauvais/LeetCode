@@ -85,7 +85,35 @@ namespace LeetCodePractice.Problems
              * Output: [1,3,2] because InOrder is Left, root, Right
              * 
              */
-            throw new NotImplementedException();
+
+            // We should use a helper function so that we can return the int when it is found.
+            // Else we consistently overwrite the output list which results in us only returning a list with 
+            // the last value visited
+            IList<int> output = new List<int>();
+
+            if(root == null)
+            {
+                return [];
+            }
+            if (root != null && root.val != 0) 
+            {
+                GetNodeValue(root, output);
+            }
+            
+            
+            return output;
+
+        }
+        private void GetNodeValue(TreeNode root, IList<int> foundNodes) 
+        {
+            if(root != null)
+            {
+                
+                GetNodeValue(root.left, foundNodes);
+                // We need to add the root;
+                foundNodes.Add(root.val);
+                GetNodeValue(root.right, foundNodes);
+            } 
         }
     }
 }
