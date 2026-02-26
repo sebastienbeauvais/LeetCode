@@ -201,7 +201,17 @@ namespace LeetCodePractice.Problems
              * 
              */
 
-            throw new NotImplementedException();
+            // We know that the array is in increasing order
+            // That means is the first value in the array is less than 0 we should split the array into two sides
+            //      One where the values are less than 0 (the left side of the tree
+            //      One where the values are greater than 0 (the right side of the tree)
+            // Otherwise if the first value is 0 or greater we can just start building the binary tree
+            // This comes with a catch
+            //      We need to add new nodes on the current level until it is full
+            //      That measn level 1 = 1 node
+            //      Level 2 = 2 nodes
+            //      level 3 = 4 nodes...
+
         }
     }
 }
