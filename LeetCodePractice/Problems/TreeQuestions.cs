@@ -55,7 +55,7 @@ namespace LeetCodePractice.Problems
              * Output: true
              */
 
-            throw new NotImplementedException ();
+            throw new NotImplementedException();
         }
         public bool IsSymmetrical(TreeNode root) 
         {
@@ -69,7 +69,23 @@ namespace LeetCodePractice.Problems
              *       3   4 4 3
              * Output: True
              */
-            throw new NotImplementedException ();
+            throw new NotImplementedException();
+        }
+        public IList<int> InOrderTraversal(TreeNode root)
+        {
+            /*
+             * Given the root of a binary tree, return the inorder traversal of its nodes values
+             * 
+             * EX:
+             *         1
+             *          \
+             *           2
+             *          /
+             *         3
+             * Output: [1,3,2] because InOrder is Left, root, Right
+             * 
+             */
+            throw new NotImplementedException();
         }
     }
 }
