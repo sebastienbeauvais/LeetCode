@@ -87,5 +87,28 @@ namespace LeetCodePractice.Problems
              */
             throw new NotImplementedException();
         }
+        public TreeNode SortedArrayToBST(int[] nums) 
+        {
+
+            /*
+             * Given an integer array nums where the elements are sorter in ascending order. Convert it to a 
+             * height-balanced binary search tree
+             * 
+             * Where heigt-balanced means that the depth og the substrees only differ by 1 more level
+             * 
+             * EX: 
+             * Input: [-10,-3,0,5,9]
+             * Output: [0,-3,9,-10,null,5]
+             * 
+             *              0
+             *             / \
+             *           -3   9
+             *           /   /
+             *        -10   5
+             * 
+             */
+
+            throw new NotImplementedException();
+        }
     }
 }
