@@ -180,5 +180,58 @@ namespace LeetCodePractice.Problems
                 GetNodeValue(root.right, foundNodes);
             } 
         }
+        public TreeNode SortedArrayToBST(int[] nums) 
+        {
+
+            /*
+             * Given an integer array nums where the elements are sorter in ascending order. Convert it to a 
+             * height-balanced binary search tree
+             * 
+             * Where heigt-balanced means that the depth og the substrees only differ by 1 more level
+             * 
+             * EX: 
+             * Input: [-10,-3,0,5,9]
+             * Output: [0,-3,9,-10,null,5]
+             * 
+             *              0
+             *             / \
+             *           -3   9
+             *           /   /
+             *        -10   5
+             * 
+             */
+
+            // We know that the array is in increasing order
+            // That means is the first value in the array is less than 0 we should split the array into two sides
+            //      One where the values are less than 0 (the left side of the tree
+            //      One where the values are greater than 0 (the right side of the tree)
+            // Otherwise if the first value is 0 or greater we can just start building the binary tree
+            // This comes with a catch
+            //      We need to add new nodes on the current level until it is full
+            //      That measn level 1 = 1 node
+            //      Level 2 = 2 nodes
+            //      level 3 = 4 nodes...
+
+            // find the arrays index for the first value that is 0 or greater
+            if (nums.Length == 0)
+            {
+                return null;
+            }
+            TreeNode head = CreateTreeNode(nums, 0, nums.Length - 1);
+            return head;
+        }
+        private TreeNode CreateTreeNode(int[] nums, int low, int high) 
+        {
+            if(low > high)
+            {
+                return null; // We are done and 
+            }
+            int mid = low + (high - low) / 2; // We find the middle value to split the tree
+            TreeNode node = new TreeNode(nums[mid]);
+            node.left = CreateTreeNode(nums, low, mid - 1);
+            node.right = CreateTreeNode(nums, mid + 1, high);
+
+            return node;
+        }
     }
 }
