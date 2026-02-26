@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using LeetCodePractice.Classes;
 
@@ -22,6 +23,17 @@ namespace LeetCodePractice.Problems
              *       15   7
              * Output: 3 (3->20->7)
              */
+            if(root == null)
+            {
+                return 0;
+            }
+            else
+            {
+                var left = MaxDepth(root.left);
+                var right = MaxDepth(root.right);
+                var maxDepth = Math.Max(left, right);
+                return maxDepth + 1;
+            }
             throw new NotImplementedException();
         }
         public bool IsUnivalTree(TreeNode root)
@@ -40,7 +52,22 @@ namespace LeetCodePractice.Problems
              * Output: true
              */
 
-            throw new NotImplementedException();
+            if(root == null)
+            {
+                return true; // We reached the bottom of the branch
+            }
+            else
+            {
+                if(root.left != null && root.left.val != root.val)
+                {
+                    return false;
+                }
+                if (root.right != null && root.right.val != root.val) 
+                {
+                    return false;
+                }
+                return IsUnivalTree(root.left) && IsUnivalTree(root.right);
+            }
         }
         public bool IsSameTree(TreeNode p, TreeNode q) 
         {
@@ -55,7 +82,29 @@ namespace LeetCodePractice.Problems
              * Output: true
              */
 
-            throw new NotImplementedException();
+            if(p == null && q == null)
+            {
+                return true;
+            }
+            else if((p == null && q != null) || (q == null && p != null))
+            {
+                return false;
+            }
+            else
+            {
+                if (p.val == q.val)
+                {
+                    var isLeftBranchMatch = IsSameTree(p.left, q.left);
+                    var isRightBranchMatch = IsSameTree(p.right, q.right);
+                    if(isLeftBranchMatch == false || isRightBranchMatch == false)
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+                return false;
+                
+            }
         }
         public bool IsSymmetrical(TreeNode root) 
         {
@@ -69,7 +118,23 @@ namespace LeetCodePractice.Problems
              *       3   4 4 3
              * Output: True
              */
-            throw new NotImplementedException();
+            return IsMirror(root, root);
+        }
+        private bool IsMirror(TreeNode left, TreeNode right)
+        {
+            if(left == null && right == null)
+            {
+                return true;
+            }
+            if(left == null || right == null)
+            {
+                return false;
+            }
+            if(left.val != right.val)
+            {
+                return false;
+            }
+            return (IsMirror(left.left, right.right) && IsMirror(left.right, right.left));
         }
         public IList<int> InOrderTraversal(TreeNode root)
         {
@@ -85,7 +150,35 @@ namespace LeetCodePractice.Problems
              * Output: [1,3,2] because InOrder is Left, root, Right
              * 
              */
-            throw new NotImplementedException();
+
+            // We should use a helper function so that we can return the int when it is found.
+            // Else we consistently overwrite the output list which results in us only returning a list with 
+            // the last value visited
+            IList<int> output = new List<int>();
+
+            if(root == null)
+            {
+                return [];
+            }
+            if (root != null && root.val != 0) 
+            {
+                GetNodeValue(root, output);
+            }
+            
+            
+            return output;
+
+        }
+        private void GetNodeValue(TreeNode root, IList<int> foundNodes) 
+        {
+            if(root != null)
+            {
+                
+                GetNodeValue(root.left, foundNodes);
+                // We need to add the root;
+                foundNodes.Add(root.val);
+                GetNodeValue(root.right, foundNodes);
+            } 
         }
         public TreeNode SortedArrayToBST(int[] nums) 
         {
