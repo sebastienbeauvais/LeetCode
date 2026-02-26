@@ -118,10 +118,6 @@ namespace LeetCodePractice.Problems
              *       3   4 4 3
              * Output: True
              */
-            
-            // We know that when we hit null (i.e. find a leaf) we should return true
-            // This bubbles us back up the tree and we start comparing values between nodes
-            // Since we are looking for symmetry we want to compare the right node val with the left node val
             return IsMirror(root, root);
         }
         private bool IsMirror(TreeNode left, TreeNode right)
@@ -132,13 +128,57 @@ namespace LeetCodePractice.Problems
             }
             if(left == null || right == null)
             {
-                return false; //Because both can be null and this would be valid match
+                return false;
             }
             if(left.val != right.val)
             {
                 return false;
             }
-            return IsMirror(left.left, right.right) && IsMirror(left.right, right.left);
+            return (IsMirror(left.left, right.right) && IsMirror(left.right, right.left));
+        }
+        public IList<int> InOrderTraversal(TreeNode root)
+        {
+            /*
+             * Given the root of a binary tree, return the inorder traversal of its nodes values
+             * 
+             * EX:
+             *         1
+             *          \
+             *           2
+             *          /
+             *         3
+             * Output: [1,3,2] because InOrder is Left, root, Right
+             * 
+             */
+
+            // We should use a helper function so that we can return the int when it is found.
+            // Else we consistently overwrite the output list which results in us only returning a list with 
+            // the last value visited
+            IList<int> output = new List<int>();
+
+            if(root == null)
+            {
+                return [];
+            }
+            if (root != null && root.val != 0) 
+            {
+                GetNodeValue(root, output);
+            }
+            
+            
+            return output;
+
+        }
+        private void GetNodeValue(TreeNode root, IList<int> foundNodes) 
+        {
+            if(root != null)
+            {
+                
+                GetNodeValue(root.left, foundNodes);
+                // We need to add the root;
+                foundNodes.Add(root.val);
+                GetNodeValue(root.right, foundNodes);
+            } 
         }
     }
 }
