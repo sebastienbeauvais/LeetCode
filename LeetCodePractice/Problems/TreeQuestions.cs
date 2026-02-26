@@ -212,6 +212,26 @@ namespace LeetCodePractice.Problems
             //      Level 2 = 2 nodes
             //      level 3 = 4 nodes...
 
+            // find the arrays index for the first value that is 0 or greater
+            if (nums.Length == 0)
+            {
+                return null;
+            }
+            TreeNode head = CreateTreeNode(nums, 0, nums.Length - 1);
+            return head;
+        }
+        private TreeNode CreateTreeNode(int[] nums, int low, int high) 
+        {
+            if(low > high)
+            {
+                return null; // We are done and 
+            }
+            int mid = low + (high - low) / 2; // We find the middle value to split the tree
+            TreeNode node = new TreeNode(nums[mid]);
+            node.left = CreateTreeNode(nums, low, mid - 1);
+            node.right = CreateTreeNode(nums, mid + 1, high);
+
+            return node;
         }
     }
 }

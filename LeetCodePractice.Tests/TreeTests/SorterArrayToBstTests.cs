@@ -16,11 +16,27 @@ namespace LeetCodePractice.Tests.TreeTests
         public void SorterArrayToBst_ShouldReturnBst_WhenValidArrayGiven()
         {
             int[] nums = { -10, -3, 0, 5, 9 };
+
             var result = _treeQuestions.SortedArrayToBST(nums);
 
-            var expected = new TreeNode(0, new TreeNode(-3, new TreeNode(-10)), new TreeNode(5, null, new TreeNode(9)));
+            var inorderResult = InOrderTraversal(result);
 
-            Assert.AreEqual(expected, result);
+            CollectionAssert.AreEqual(nums, inorderResult);
+        }
+        private List<int> InOrderTraversal(TreeNode root)
+        {
+            var result = new List<int>();
+            Traverse(root, result);
+            return result;
+
+        }
+        private void Traverse(TreeNode root, List<int> values)
+        {
+            if (root == null) return;
+
+            Traverse(root.left, values);
+            values.Add(root.val);
+            Traverse(root.right, values);
         }
     }
 }
